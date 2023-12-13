@@ -60,7 +60,6 @@ h1 {
 
 .progress {
   position: absolute;
-  width: 10%;
   background-color: var(--prog-fg);
 }
 
@@ -87,12 +86,29 @@ button {
   color: var(--form-text);
 }
 
+.btn-container {
+  display: flex;
+}
+
 button {
   color: var(--form-bg);
   background-color: var(--next-btn);
   border: none;
 }
 
+.submit-btn {
+  background-color: var(--submit-btn);
+}
+
+.prev-btn {
+  color: var(--form-text);
+  background-color: var(--prev-btn);
+}
+
 .whole-btn {
   width: 100%;
+}
+
+.half-btn {
+  width: 50%;
 }
