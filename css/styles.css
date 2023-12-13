@@ -19,4 +19,80 @@
   --submit-btn: #6ad9a3;
 
   font-family: "Inter", sans-serif;
+  color: var(--form-text);
+}
+
+body {
+  padding: 4rem 2rem;
+  background-color: var(--body-bg);
+}
+
+.card {
+  max-width: 600px;
+  margin-inline: auto;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: var(--form-bg);
+}
+
+.top {
+  margin-bottom: 2rem;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  padding-top: 2rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.progress-container,
+.progress {
+  height: 7px;
+  border-radius: 25px;
+}
+
+.progress-container {
+  position: relative;
+  width: 100%;
+  background-color: var(--prog-bg);
+}
+
+.progress {
+  position: absolute;
+  width: 10%;
+  background-color: var(--prog-fg);
+}
+
+.label-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.label-input label {
+  font-size: 0.8rem;
+}
+
+.label-input input,
+button {
+  height: 2.5rem;
+  border-radius: 5px;
+}
+
+.label-input input {
+  padding-left: 1rem;
+  border: 1px solid var(--input-brdr);
+  color: var(--form-text);
+}
+
+button {
+  color: var(--form-bg);
+  background-color: var(--next-btn);
+  border: none;
+}
+
+.whole-btn {
+  width: 100%;
 }
