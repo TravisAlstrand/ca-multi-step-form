@@ -43,6 +43,10 @@ h1 {
   margin-bottom: 1rem;
   padding-top: 2rem;
   font-size: 1rem;
+}
+
+h1,
+p {
   text-align: center;
 }
 
@@ -61,6 +65,10 @@ h1 {
 .progress {
   position: absolute;
   background-color: var(--prog-fg);
+}
+
+.progress.completed {
+  animation: completed 0.6s ease-out forwards;
 }
 
 .label-input {
@@ -111,4 +119,15 @@ button {
 
 .half-btn {
   width: 50%;
+}
+
+@keyframes completed {
+  0% {
+    width: 66%;
+    background-color: var(--prog-fg);
+  }
+  100% {
+    width: 100%;
+    background-color: gold;
+  }
 }

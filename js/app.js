@@ -1,3 +1,4 @@
+const card = document.querySelector("#card");
 const progress = document.querySelector("#progress");
 const form = document.querySelector("form");
 const labelInput = form.querySelector("#labelInput");
@@ -15,6 +16,8 @@ form.addEventListener("submit", (e) => {
     validateStepOne(form.name.value);
   } else if (form.email) {
     validateStepTwo(form.email.value);
+  } else if (form.phone) {
+    validateStepThree(form.phone.value);
   }
 });
 
@@ -47,22 +50,39 @@ function validateStepTwo(input) {
   }
 }
 
-function validateStepThree(input) {}
+function validateStepThree(input) {
+  if (input) {
+    if (/^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$/i.test(input)) {
+      console.log("complete progress animation");
+      progress.classList.add("completed");
+      phoneInput = input;
+      setTimeout(() => {
+        completeForm();
+      }, 600);
+    } else {
+      labelInput.lastElementChild.style.border = "1px solid red";
+      console.log("invalid phone");
+    }
+  } else {
+    labelInput.lastElementChild.style.border = "1px solid red";
+    console.log("empty phone");
+  }
+}
 
 function updateForm(step) {
   if (step === 1) {
-    updateLabelHTML("text", "name", nameInput);
+    updateLabelHTML("text", "name", nameInput, "Joe Smith");
     btnCont.innerHTML = `
       <button type="submit" class="whole-btn">Next</button>
     `;
   } else if (step === 2) {
-    updateLabelHTML("email", "email", emailInput);
+    updateLabelHTML("email", "email", emailInput, "joe@example.com");
     btnCont.innerHTML = `
       <button type="button" class="half-btn prev-btn">Previous</button>
       <button type="submit" class="half-btn">Next</button>
     `;
   } else if (step === 3) {
-    updateLabelHTML("tel", "phone", phoneInput);
+    updateLabelHTML("tel", "phone", phoneInput, "123-123-1234");
     btnCont.innerHTML = `
       <button type="button" class="half-btn prev-btn">Previous</button>
       <button type="submit" class="half-btn submit-btn">Submit</button>
@@ -70,11 +90,19 @@ function updateForm(step) {
   }
 }
 
-function updateLabelHTML(type, name, value) {
+function updateLabelHTML(type, name, value, placeholder) {
   labelInput.innerHTML = `
     <label for="${name}">${
     name.charAt(0).toUpperCase() + name.slice(1)
   }:</label>
-    <input type="${type}" name="${name}" id="${name}" value="${value}"/>
+    <input type="${type}" name="${name}" id="${name}" value="${value}" placeholder="${placeholder}"/>
+  `;
+}
+
+function completeForm() {
+  card.innerHTML = `
+    <h1>Thanks ${nameInput}!</h1>
+    <p>We'll be spamming ${emailInput}</p>
+    <p>and scamming ${phoneInput} shortly!</p>
   `;
 }
