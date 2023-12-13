@@ -28,7 +28,7 @@ body {
 }
 
 .card {
-  max-width: 600px;
+  max-width: 500px;
   margin-inline: auto;
   padding: 1rem;
   border-radius: 5px;
@@ -119,6 +119,12 @@ button {
 
 .half-btn {
   width: 50%;
+}
+
+.error {
+  display: none;
+  margin-top: 1rem;
+  color: red;
 }
 
 @keyframes completed {
